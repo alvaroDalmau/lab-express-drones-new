@@ -1,1 +1,26 @@
 <h2>Available drones</h2>
+{{#each drones}}
+<div class="container">
+  <div class="box">
+    <p>{{ this.name }}</p>
+    <p>{{ this.propellers }} propellers</p>
+    <p>{{ this.maxSpeed }} m/s</p>
+  </div>
+  <div class="box">
+    <a
+      class="btn btn-info"
+      aria-current="page"
+      href="/drones/{{ this._id }}/edit"
+      >
+      Edit
+    </a>
+    <form method="POST" action="/drones/{{ this._id }}/delete">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>
+{{/each}}
+
+<div class="center-box">
+    <a href="/drones/create" class="btn btn-success">Add Drone</a>
+</div>
